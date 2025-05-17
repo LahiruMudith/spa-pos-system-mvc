@@ -546,13 +546,7 @@ $('#place-order-table-body').on('click', '#delete-btn', function (event){
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             const item_index = $(this).index();
-            let item = cart[item_index];
             cart.splice(item_index, 1);
-            item_db.forEach(function (item){
-                if (item.iId === item.itemId){
-                    item.qty = Number(item.qty) + Number(item.orderQty);
-                }
-            });
             loadItems();
             Swal.fire({
                 title: "Deleted",
