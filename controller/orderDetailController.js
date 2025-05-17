@@ -1,0 +1,129 @@
+import {order_db, item_db, customer_db} from "../db/db.js";
+import OrderModel from "../model/OrderModel.js";
+
+// Sample data for order_db
+// let items = [
+//     {
+//         iId: "I001",
+//         itemName: "Burger",
+//         qty: 2,
+//         price: 200,
+//         total: 4000
+//     },
+//     {
+//         iId: "I002",
+//         itemName: "Pizza",
+//         qty: 1,
+//         price: 500,
+//         total: 1000
+//     },
+//     {
+//         iId: "I003",
+//         itemName: "Pasta",
+//         qty: 3,
+//         price: 300,
+//         total: 900
+//     }
+// ];
+// let items2 = [
+//     {
+//         iId: "I004",
+//         itemName: "Burger",
+//         qty: 2,
+//         price: 200,
+//         total: 4000
+//     },
+//     {
+//         iId: "I005",
+//         itemName: "Pizza",
+//         qty: 1,
+//         price: 500,
+//         total: 1000
+//     },
+//     {
+//         iId: "I006",
+//         itemName: "Pasta",
+//         qty: 3,
+//         price: 300,
+//         total: 900
+//     }
+// ];
+// let order1 = new OrderModel("OR001", "C001", "Lahiru", "0761298256", "1200", items)
+// let order2 = new OrderModel("OR002", "C002", "Mudith", "0761298256", "12000", items2)
+// order_db.push(order1)
+// order_db.push(order2)
+
+var orderArray = order_db;
+
+loadTable();
+
+function loadTable(){
+    console.log(orderArray);
+    $("#customer-table-body").empty();
+
+    orderArray.forEach((order, index) => {
+        let customerRow = `<tr>
+                        <td>${index}</td>
+                        <td>${order.oId}</td>
+                        <td>${order.orderDate}</td>
+                        <td>${order.cId}</td>
+                        <td>${order.customerName}</td>
+                        <td>${order.phoneNumber}</td>
+                        <td>${order.total}</td>
+                        <td>${order.cash}</td>
+                        <td>${order.balance}</td>
+                        <td>${order.discount}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" id="itemBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Item
+                            </button>
+                        </td>
+                        <td><button type="button" class="btn btn-danger" id="deleteBtn">Delete</button></td>
+                    </tr>`
+        $("#customer-table-body").append(customerRow);
+    });
+}
+
+$("#customer-table-body").on('click', '#itemBtn', function (event){
+    $("#item-table-body").empty();
+    let rowIndex = $(this).closest('tr').index();
+
+    orderArray[rowIndex].items.forEach(item => {
+        let itemRow = `<tr>
+                        <td>${item.iId}</td>
+                        <td>${item.itemName}</td>
+                        <td>${item.price}</td>
+                        <td>${item.qty}</td>
+                        <td>${item.total}</td>
+                    </tr>`
+        $("#item-table-body").append(itemRow);
+    });
+});
+
+$("#customer-table-body").on('click', '#deleteBtn', function (event){
+    let rowIndex = $(this).closest('tr').index();
+    order_db.splice(rowIndex, 1);
+    loadTable();
+});
+
+$("#customerSearchBtn").on('click', function (event){
+    event.preventDefault();
+
+    orderArray = [];
+    let customerId = $("#txtCustomerId").val();
+
+    order_db.forEach(order => {
+        if (order.cId===customerId){
+            orderArray.push(order);
+        }
+    });
+    loadTable();
+});
+
+$("#clearBtn").on('click', function (event){
+    event.preventDefault();
+
+    $("txtCustomerId").val("asdf");
+    console.log("click");
+    loadTable();
+});

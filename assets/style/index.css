@@ -1,0 +1,41 @@
+body{
+    height: 90vh;
+    /*flex-direction: column;*/
+}
+#lblTotal{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.container-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item-table{
+    width: 98% !important;
+}
+
+@media all and (max-width: 1145px) {
+    #lblTotal{
+        font-size: 1.6rem;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #lblTotal{
+        font-size: 1.6rem;
+    }
+    .card-form{
+        height: fit-content!important;
+        padding-bottom: 10px;
+    }
+}
+
+@media all and (max-width: 575px) {
+    .card-form{
+        width: 80% !important;
+    }
+    .item-table{
+        width: 90% !important;
+    }
+}

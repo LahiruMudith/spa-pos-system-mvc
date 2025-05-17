@@ -1,0 +1,50 @@
+.order-table{
+    width: 98% !important;
+}
+
+@media all and (max-width: 695px){
+    .order-table{
+        width: 90% !important;
+    }
+    .order-table > thead > tr > th{
+        font-size: 0.6rem;
+    }
+    .order-table > tbody > tr > td{
+        font-size: 0.6rem;
+    }
+}
+@media all and (max-width: 495px){
+    .order-table > thead > tr > th{
+        font-size: 0.5rem;
+    }
+    .order-table > tbody > tr > td{
+        font-size: 0.5rem;
+    }
+}
+@media all and (max-width: 440px){
+    .order-table > thead > tr > th{
+        font-size: 0.4rem;
+    }
+    .order-table > tbody > tr > td{
+        font-size: 0.4rem;
+    }
+}
+@media all and (max-width: 385px){
+    .order-table > thead > tr > th{
+        font-size: 0.3rem;
+    }
+    .order-table > tbody > tr > td{
+        font-size: 0.3rem;
+    }
+    .search-bar{
+        width: 80% !important;
+    }
+}
+@media all and (max-width: 326px){
+    .order-table > thead > tr > th{
+        font-size: 0.2rem;
+    }
+    .order-table > tbody > tr > td{
+        font-size: 0.2rem;
+    }
+}

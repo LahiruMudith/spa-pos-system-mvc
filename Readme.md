@@ -1,0 +1,23 @@
+
+**Mini Pos System** 📚
+================
+
+### Goals 🎯
+
+* [📄 Goals Document](https://)
+
+### Site Map 🗺️
+
+* [📍 Site Map](https://www.gloomaps.com/xKVZkYlENW)
+
+### Wireframe 🖋️
+
+* [📁 Wireframe File](https://)
+
+### Mockups (Figma) 🎨
+
+* [🖌️ Mockups](https://www.figma.com/design/S2fNtx2S4jnT32ldTIxnoL/Untitled?node-id=0-1&t=6YNFAgbTc5LzQ5l3-1)
+
+### Project Lik (Git Hub) 🤖
+
+* [💻 Project](https://github.com/LahiruMudith/pos-system.git)

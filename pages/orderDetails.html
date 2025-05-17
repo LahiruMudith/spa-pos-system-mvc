@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Item Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/style/orderDetails.css">
+</head>
+<body>
+<!--nav bar-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-danger ms-3" href="#">Mini Pos System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-1" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="fw-bold nav-link" aria-current="page" href="customer.html">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-bold nav-link" href="item.html">Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-bold nav-link" href="../index.html">Place Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-bold nav-link active" href="#" aria-disabled="true">Order Details</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="d-flex flex-column align-items-center row">
+    <form class="search-bar d-flex m-2 col-4" role="search" style="width: 25rem">
+        <input class="form-control me-2" type="search" placeholder="Search Customer ID" aria-label="Search" id="txtCustomerId"/>
+        <button class="btn btn-outline-success me-2" type="submit" id="customerSearchBtn">Search</button>
+        <button class="btn btn-outline-primary me-2" type="submit" id="clearBtn">Clear</button>
+    </form>
+    <!--Order table-->
+    <table class="table order-table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Order ID</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Total</th>
+            <th scope="col">Cash</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Discount</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody id="customer-table-body">
+                    <tr>
+                        <td>002</td>
+                        <td>C001</td>
+                        <td>Customer</td>
+                        <td>00000000</td>
+                        <td>12000</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Item
+                            </button>
+                        </td>
+                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                    </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-2" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" style="width: 80rem">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item ID</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">QTY</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="item-table-body">
+<!--                        <tr>-->
+<!--                            <td>Mark</td>-->
+<!--                            <td>Otto</td>-->
+<!--                            <td>@mdo</td>-->
+<!--                            <td>@mdo</td>-->
+<!--                            <td>@mdo</td>-->
+<!--                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../assets/lib/jquery-3.7.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="../controller/orderDetailController.js"></script>
+</body>
+</html>
